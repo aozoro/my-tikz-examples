@@ -517,21 +517,21 @@ plot [domain=0:2*pi] (\x,{sin(\x r)})
 \coordinate (O) at (0,0); 
 \coordinate[label= left:$\overline{C}$] (C) at (0,3);
 
-\draw[->] (O) -- (8,0) node[right] {$Y^d$};
+\draw[->] (O) -- (8,0) node[right] {$Y$};
 \draw[->] (O) -- (0,8) node[above] {$C$};
 
-\draw[black]  (C) -- (7.2,7.5) node[right] {$C=\overline{C}+cY^d$};
+\draw[black]  (C) -- (7.2,7.5) node[right] {$C=\overline{C}+cY$};
 
 \coordinate (E1) at (2,4.25);
-\coordinate[label= left:$C_1$,blue] (C1) at (0,4.25);
-\coordinate[label= below:$Y^d_1$,blue] (Y1) at (2,0);
+\coordinate[label= left:$C_1$] (C1) at (0,4.25);
+\coordinate[label= below:$Y_1$] (Y1) at (2,0);
 \draw[dashed] (C1)--(E1);
 \draw[dashed] (Y1)--(E1);
 \draw[red,dashed] (O)--node[pos=.5,fill=white,inner sep=1pt]{$\mbox{PMe}C_1$} (E1);
 
 \coordinate (E2) at (6,6.75);
 \coordinate[label= left:$C_2$,blue] (C2) at (0,6.67);
-\coordinate[label= below:$Y^d_2$,blue] (Y2) at (6,0);
+\coordinate[label= below:$Y_2$,blue] (Y2) at (6,0);
 \draw[dashed] (C2)--(E2);
 \draw[dashed] (Y2)--(E2);
 \draw[red,dashed] (O)--node[pos=.5,fill=white,inner sep=1pt]{$\mbox{PMe}C_2$} (E2);
@@ -539,6 +539,113 @@ plot [domain=0:2*pi] (\x,{sin(\x r)})
 \end{adjustbox}
 \end{figure}
 
+
+\begin{figure}[H]
+\centering 
+\begin{adjustbox}{width=\columnwidth}
+\begin{tikzpicture}
+\coordinate (O) at (0,0); 
+\draw[->] (O) -- (8,0) node[right] {$Y$}; \draw[->] (O) -- (0,8) node[above] {$C$};
+\draw[blue]  (0,0) -- (8,8); 
+\node[blue, text width = 3cm, text centered,above] at (8,8) {largo plazo: Pme$C$ constante}; 
+\draw[red]  (0,3) -- (8,6); 
+\node[red, text width = 3cm, text centered,above] at (8,6) {corto plazo: Pme$C$ decreciente};
+\end{tikzpicture}
+\end{adjustbox}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\centering
+\begin{adjustbox} {width=\columnwidth}
+\begin{tikzpicture}
+
+\coordinate (O) at (0,0); 
+
+\draw[->] (O) -- (8,0) node[right] {$C_1$};
+\draw[->] (O) -- (0,8) node[above] {$C_2$};
+
+\coordinate[label= left:$(1+r)Y_1+Y_2$] (C2) at (0,7);
+\filldraw (C2) rectangle ++ (-1mm,0.2mm);
+
+\coordinate[label= below:$Y_1+\frac{Y_2}{1+r}$] (C1) at (7,0);
+\filldraw (C1) rectangle ++ (0.2mm,-1.2mm);
+
+\draw[black]   (C2)-- (C1);
+
+\coordinate (E) at (3.5,3.5);
+\coordinate (Y1) at (3.5,0);
+\coordinate (Y2) at (0,3.5);
+
+\node[below] at (Y1) {$C_1=Y_1$};
+\node[left] at (Y2) {$C_2=Y_2$};
+
+\draw[decorate, decoration = {brace, amplitude = 15pt},blue] (C2) -- (E) node [align=center, blue,midway,xshift=5mm, yshift=5mm] {\rotatebox{-45} {prestamista o acreedor}};
+
+\draw[decorate, decoration = {brace, amplitude = 15pt},red] (E) -- (C1) node [align=center,midway,xshift=5mm, yshift=5mm,text width = 5cm] {\rotatebox{-45} {prestatario o deudor}};
+
+\draw[dashed] (Y1) -- (E);
+\draw[dashed] (Y2) -- (E);
+
+\node at (6,6) {pendiente: $m=-(1+r)$};
+\end{tikzpicture}
+\end{adjustbox}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\begin{adjustbox} {width=\columnwidth}
+\begin{tikzpicture}
+
+\coordinate (O) at (0,0); 
+
+\draw[->] (O) -- (8.5,0) node[right] {$C_1$};
+\draw[->] (O) -- (0,8.5) node[above] {$C_2$};
+
+\draw[domain=0.6:7.5,samples=100] plot (\x,{(4) /(\x) }) node [ right ] {$U_1$};
+\draw[domain=1.1:7.5,samples=100] plot (\x,{(8) /(\x) }) node [ right ] {$U_2$};
+
+\draw[red, dashed, domain=2:0] plot (\x,{-4*\x+8 }) node [right] {$m_X$};
+\draw[red, dashed, domain=8:0] plot (\x,{(8-\x)/4 }) node [above right] {$m_Y$};
+
+
+\filldraw (3.2,2.5) circle (1mm) node[above right] {$Z$};
+\filldraw (1,4) circle (1mm) node[right] {$X$};;
+\filldraw (4,1) circle (1mm) node[above right] {$Y$};;
+\end{tikzpicture}
+\end{adjustbox}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\begin{adjustbox} {width=\columnwidth}
+\begin{tikzpicture}
+
+\coordinate (O) at (0,0); 
+
+\draw[->] (O) -- (8.5,0) node[right] {$C_1$};
+\draw[->] (O) -- (0,8.5) node[above] {$C_2$};
+
+\coordinate (C2) at (0,7);
+\coordinate (C1) at (7,0);
+
+\draw[black]   (C2)-- (C1);
+
+
+\draw[domain=1.1:7.5,samples=100] plot (\x,{(8) /(\x) }) node [ right ] {$U_1$};
+\draw[domain=1.6:7.5,samples=100] plot (\x,{(12.25) /(\x) }) node [ right ] {$U_2$};
+\draw[domain=2:7.5,samples=100] plot (\x,{(16) /(\x) }) node [ right ] {$U_3$};
+
+\filldraw (3.5,3.5) circle (0.5mm) node[above right] {$B$};
+\filldraw (1.43845,5.56155) circle (0.5mm) node[above right] {$A$};
+\filldraw (5.56155,1.43845) circle (0.5mm) node[above right] {$C$};
+
+\end{tikzpicture}
+\end{adjustbox}
+\end{figure}
 
 
 
