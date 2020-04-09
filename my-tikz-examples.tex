@@ -672,6 +672,335 @@ plot [domain=0:2*pi] (\x,{sin(\x r)})
 \end{figure}
 
 
+\begin{figure}[H]
+\centering
+\begin{adjustbox} {width=0.4\columnwidth}
+\begin{tikzpicture}
+
+\filldraw[draw=none,fill=green!30] (-1,1) -- plot[domain=0:1,smooth,samples=100] (\x,{1-\x)}) -- (1,-1) --plot[domain=0:-1,smooth,samples=100] (\x,{-1-\x)})--cycle;
+
+\draw[<->] (-2.1,0) -- (2.1,0) node[right] {$x$};
+\draw[<->] (0,-2.1) -- (0,2.1) node[above] {$y$};
+\draw[color=gray,help lines] (-2,-2) grid (2,2);
+
+\draw[blue,line width=1.5pt] plot[domain=1:0,smooth,samples=100] (\x,{1-\x)})--(-1,1) node[above] {$f(x)$};
+\draw[red,line width=1.5pt] plot[domain=-1:0,smooth,samples=100] (\x,{-1-\x)})--(1,-1) node[below] {$g(x)$};
+\end{tikzpicture}
+\end{adjustbox}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{adjustbox} {width=\columnwidth}
+\begin{tikzpicture}
+
+\coordinate (O) at (0,0); 
+
+\draw[->] (O) -- (8.5,0) node[right] {$C_1$};
+\draw[->] (O) -- (0,8.5) node[above] {$C_2$};
+
+\coordinate (C1) at (5,0);
+\coordinate (C2) at (0,5);
+
+\coordinate (D1) at (7,0);
+\coordinate (D2) at (0,7);
+
+\draw[domain=0.9:7.5,samples=100,line width=1.5pt] plot (\x,{(6.25) /(\x) }) node [ right ] {$U'$};
+\draw[blue,domain=1.6:7.5,samples=100,line width=1.5pt] plot (\x,{(12.25) /(\x) }) node [ right ] {$U''$};
+
+\draw[black,line width=1.5pt]   (C2)-- (C1) node[above right] {RP$'$};
+\draw[blue, line width=1.5pt]   (D2)-- (D1) node[above right] {RP$''$};
+
+\coordinate (C3) at (2.5,2.5);
+\coordinate (C4) at (0,2.5);
+\coordinate (C5) at (2.5,0);
+
+\coordinate (D3) at (3.5,3.5);
+\coordinate (D4) at (0,3.5);
+\coordinate (D5) at (3.5,0);
+
+\node[left] at (C4) {\footnotesize $C_2'=Y_2'$}; 
+\node[below] at (C5) {\footnotesize $C_1'=Y_1'$}; 
+
+\node[blue, left] at (D4) {\footnotesize $C_2''$}; 
+\node[blue, below] at (D5) {\footnotesize $C_1''$}; 
+
+\coordinate (E) at (2.5,4.5);
+\draw[black,dashed] (C3) -- (E);
+\draw[blue, dashed] (E) -- (0,4.5) node[left] {$Y_2''$};
+
+\draw[black,dashed] (C4) -- (C3);
+\draw[black,dashed] (C5) -- (C3);
+
+\draw[blue,dashed] (D4) -- (D3);
+\draw[blue,dashed] (D5) -- (D3);
+
+\filldraw[black]  (C3) circle (1mm);
+\filldraw[blue] (D3) circle (1mm);
+\end{tikzpicture}
+\end{adjustbox}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{adjustbox} {width=\columnwidth}
+\begin{tikzpicture}
+
+\coordinate (O) at (0,0); 
+
+\draw[->] (O) -- (8.5,0) node[right] {$C_1$};
+\draw[->] (O) -- (0,8.5) node[above] {$C_2$};
+
+\coordinate (C1) at (5,0);
+\coordinate (C2) at (0,5);
+
+\coordinate (D1) at (7,0);
+\coordinate (D2) at (0,7);
+
+\draw[domain=0.9:7.5,samples=100,line width=1.5pt] plot (\x,{(6.25) /(\x) }) node [ right ] {$U'$};
+\draw[blue,domain=1.6:7.5,samples=100,line width=1.5pt] plot (\x,{(12.25) /(\x) }) node [ right ] {$U''$};
+
+\draw[black,line width=1.5pt]   (C2)-- (C1) node[above right] {RP$'$};
+\draw[blue, line width=1.5pt]   (D2)-- (D1) node[above right] {RP$''$};
+
+\coordinate (C3) at (2.5,2.5);
+\coordinate (C4) at (0,2.5);
+\coordinate (C5) at (2.5,0);
+
+\coordinate (D3) at (3.5,3.5);
+\coordinate (D4) at (0,3.5);
+\coordinate (D5) at (3.5,0);
+
+\node[left] at (C4) {\footnotesize $C_2'=Y_2'$}; 
+\node[below] at (C5) {\footnotesize $C_1'=Y_1'$}; 
+
+\node[blue, left] at (D4) {\footnotesize $C_2''$}; 
+\node[blue, below] at (D5) {\footnotesize $C_1''$}; 
+
+\coordinate (E) at (4.5,2.5);
+\draw[black,dashed] (C4) -- (E);
+\draw[blue, dashed] (E) -- (4.5,0) node[below] {$Y_1''$};
+
+\draw[black,dashed] (C4) -- (C3);
+\draw[black,dashed] (C5) -- (C3);
+
+\draw[blue,dashed] (D4) -- (D3);
+\draw[blue,dashed] (D5) -- (D3);
+
+\filldraw[black]  (C3) circle (1mm);
+\filldraw[blue] (D3) circle (1mm);
+\end{tikzpicture}
+\end{adjustbox}
+\end{figure}
+
+
+
+\begin{figure}[H]
+
+\newcommand{\rr}{1.5}
+
+\centering
+\begin{adjustbox} {width=\columnwidth}
+\begin{tikzpicture}
+
+\coordinate (O) at (0,0); 
+
+\draw[->] (O) -- (8.5,0) node[right] {$C_1$};
+\draw[->] (O) -- (0,9.2) node[above] {$C_2$};
+
+\coordinate (C1) at (5,0);
+\coordinate (C2) at (0,5);
+
+\draw[domain=0.8:7.5,samples=100,line width=1.5pt] plot (\x,{(6.25) /(\x) });
+
+\draw[black,line width=1.5pt]   (C2)-- (C1) node[above right] {RP$'$};
+
+\coordinate (C3) at (2.5,2.5);
+\coordinate (C4) at (0,2.5);
+\coordinate (C5) at (2.5,0);
+
+\node[left] at (C4) {\footnotesize $C_2'$}; 
+\node[below] at (C5) {\footnotesize $C_1'$}; 
+
+\draw[black,dashed] (C4) -- (C3);
+\draw[black,dashed] (C5) -- (C3);
+
+\filldraw[black]  (C3) circle (1mm);
+
+\draw[red, domain=0:(2.5*(2+\rr)/(1+\rr)), samples=100,line width=1.5pt] plot (\x,{2.5*(2+\rr)-(1+\rr)*\x}) node[above right] {RP$''$};
+\draw[red,domain=0.95:7.5,samples=100,line width=1.5pt] plot (\x,{((6.25/4)*(2+\rr)*(2+\rr)/(1+\rr)) /(\x) });
+
+\coordinate (E3) at ({1.25*(\rr+2)/(\rr+1)}, {1.25*(2+\rr)});
+\coordinate (E4) at (0,{1.25*(2+\rr)});
+\coordinate (E5) at ({1.25*(\rr+2)/(\rr+1)},0);
+
+\node[red,left] at (E4) {\footnotesize $C_2''$}; 
+\node[red,below] at (E5) {\footnotesize $C_1''$}; 
+
+\draw[red,dashed] (E4) -- (E3);
+\draw[red,dashed] (E5) -- (E3);
+
+\filldraw[red]  (E3) circle (1mm);
+
+\coordinate (K) at (2.5,2.5);
+\filldraw[green]  (K) circle (0.5mm);
+\node[draw,green] (KK) at (4,6) {\small $(Y_1',Y_2')$};
+\draw[-latex,dashed,green] (KK)--(K);
+
+\end{tikzpicture}
+\end{adjustbox}
+\end{figure}
+
+
+
+\begin{figure}[H]
+
+\newcommand{\rr}{1.5}
+\newcommand{\lmb}{0.1}
+
+\centering
+\begin{adjustbox} {width=\columnwidth}
+\begin{tikzpicture}
+
+\coordinate (O) at (0,0); 
+
+\draw[->] (O) -- (8.5,0) node[right] {$C_1$};
+\draw[->] (O) -- (0,9.2) node[above] {$C_2$};
+
+\coordinate (C1) at (5,0);
+\coordinate (C2) at (0,5);
+
+\draw[domain=0.8:7.5,samples=100,line width=1.5pt] plot (\x,{(6.25) /(\x) });
+
+\draw[black,line width=1.5pt]   (C2)-- (C1) node[above right] {\footnotesize RP$'$};
+
+\coordinate (C3) at (2.5,2.5);
+\coordinate (C4) at (0,2.5);
+\coordinate (C5) at (2.5,0);
+
+\node[left] at (C4) {\footnotesize $C_2'$}; 
+\node[below] at (C5) {\footnotesize $C_1'$}; 
+
+\draw[black,dashed] (C4) -- (C3);
+\draw[black,dashed] (C5) -- (C3);
+
+\filldraw[black]  (C3) circle (1mm);
+
+\draw[red, domain=0:(2.5*(2+\rr)/(1+\rr)), samples=100,line width=1.5pt] plot (\x,{2.5*(2+\rr)-(1+\rr)*\x}) node[above right] {\footnotesize RP$''$};
+\draw[red,domain=0.95:7.5,samples=100,line width=1.5pt] plot (\x,{((6.25/4)*(2+\rr)*(2+\rr)/(1+\rr)) /(\x) });
+
+\coordinate (E3) at ({1.25*(\rr+2)/(\rr+1)}, {1.25*(2+\rr)});
+\coordinate (E4) at (0,{1.25*(2+\rr)});
+\coordinate (E5) at ({1.25*(\rr+2)/(\rr+1)},0);
+
+\node[red,left] at (E4) {\footnotesize $C_2''$}; 
+\node[red,below] at (E5) {\footnotesize $C_1''$}; 
+
+\draw[red,dashed] (E4) -- (E3);
+\draw[red,dashed] (E5) -- (E3);
+
+\filldraw[red]  (E3) circle (1mm);
+
+\draw[blue, domain=0:5*(\lmb*\rr+1)/(\rr+1), samples=100,line width=1.5pt] plot (\x,{5*(\lmb*\rr+1)-(1+\rr)*\x}) node[above right] {\footnotesize RP$'''$};
+\draw[blue,domain=0.5:7.5,samples=100,line width=1.5pt] plot (\x,{(6.25*(\lmb*\rr+1)^2/(\rr+1)) /(\x) });
+
+\coordinate (F3) at ({2.5*(\lmb*\rr+1)/(\rr+1)}, {2.5*(\lmb*\rr+1)});
+\coordinate (F4) at (0,{2.5*(\lmb*\rr+1)});
+\coordinate (F5) at ({2.5*(\lmb*\rr+1)/(\rr+1)},0);
+
+\node[blue,left] at (F4) {\footnotesize $C_2'''$}; 
+\node[blue,below] at (F5) {\footnotesize $C_1'''$}; 
+
+\draw[blue,dashed] (F4) -- (F3);
+\draw[blue,dashed] (F5) -- (F3);
+
+\filldraw[blue]  (F3) circle (1mm);
+
+\coordinate (K) at (5*\lmb, 5-5*\lmb);
+\filldraw[green]  (K) circle (0.5mm);
+\node[draw,green] (KK) at (4,6) {\small $(Y_1',Y_2')$};
+\draw[-latex,dashed,green] (KK)--(K);
+
+\end{tikzpicture}
+\end{adjustbox}
+\end{figure}
+
+
+\begin{figure}[H]
+
+\newcommand{\rr}{1.5}
+\newcommand{\lmb}{0.75}
+
+\centering
+\begin{adjustbox} {width=\columnwidth}
+\begin{tikzpicture}
+
+\coordinate (O) at (0,0); 
+
+\draw[->] (O) -- (8.5,0) node[right] {$C_1$};
+\draw[->] (O) -- (0,10.7) node[above] {$C_2$};
+
+\coordinate (C1) at (5,0);
+\coordinate (C2) at (0,5);
+
+\draw[domain=0.8:7.5,samples=100,line width=1.5pt] plot (\x,{(6.25) /(\x) });
+
+\draw[black,line width=1.5pt]   (C2)-- (C1) node[above right] {\footnotesize RP$'$};
+
+\coordinate (C3) at (2.5,2.5);
+\coordinate (C4) at (0,2.5);
+\coordinate (C5) at (2.5,0);
+
+\node[left] at (C4) {\footnotesize $C_2'$}; 
+\node[below] at (C5) {\footnotesize $C_1'$}; 
+
+\draw[black,dashed] (C4) -- (C3);
+\draw[black,dashed] (C5) -- (C3);
+
+\filldraw[black]  (C3) circle (1mm);
+
+\draw[red, domain=0:(2.5*(2+\rr)/(1+\rr)), samples=100,line width=1.5pt] plot (\x,{2.5*(2+\rr)-(1+\rr)*\x}) node[above right] {\footnotesize RP$''$};
+\draw[red,domain=0.95:7.5,samples=100,line width=1.5pt] plot (\x,{((6.25/4)*(2+\rr)*(2+\rr)/(1+\rr)) /(\x) });
+
+\coordinate (E3) at ({1.25*(\rr+2)/(\rr+1)}, {1.25*(2+\rr)});
+\coordinate (E4) at (0,{1.25*(2+\rr)});
+\coordinate (E5) at ({1.25*(\rr+2)/(\rr+1)},0);
+
+\node[red,left] at (E4) {\footnotesize $C_2''$}; 
+\node[red,below] at (E5) {\footnotesize $C_1''$}; 
+
+\draw[red,dashed] (E4) -- (E3);
+\draw[red,dashed] (E5) -- (E3);
+
+\filldraw[red]  (E3) circle (1mm);
+
+\draw[blue, domain=0:5*(\lmb*\rr+1)/(\rr+1), samples=100,line width=1.5pt] plot (\x,{5*(\lmb*\rr+1)-(1+\rr)*\x}) node[above right] {\footnotesize RP$'''$};
+\draw[blue,domain=1.5:7.5,samples=100,line width=1.5pt] plot (\x,{(6.25*(\lmb*\rr+1)^2/(\rr+1)) /(\x) });
+
+\coordinate (F3) at ({2.5*(\lmb*\rr+1)/(\rr+1)}, {2.5*(\lmb*\rr+1)});
+\coordinate (F4) at (0,{2.5*(\lmb*\rr+1)});
+\coordinate (F5) at ({2.5*(\lmb*\rr+1)/(\rr+1)},0);
+
+\node[blue,left] at (F4) {\footnotesize $C_2'''$}; 
+\node[blue,below] at (F5) {\footnotesize $C_1'''$}; 
+
+\draw[blue,dashed] (F4) -- (F3);
+\draw[blue,dashed] (F5) -- (F3);
+
+\filldraw[blue]  (F3) circle (1mm);
+
+\coordinate (K) at (5*\lmb, 5-5*\lmb);
+\filldraw[green]  (K) circle (0.5mm);
+\node[draw,green] (KK) at (4,6) {\small $(Y_1',Y_2')$};
+\draw[-latex,dashed,green] (KK)--(K);
+
+\end{tikzpicture}
+\end{adjustbox}
+\end{figure}
 
 
 \end{document}
+
+
+
+
