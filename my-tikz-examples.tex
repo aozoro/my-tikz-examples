@@ -1085,4 +1085,23 @@ plot [domain=0:2*pi] (\x,{sin(\x r)})
 \end{tikzpicture} 
 \end{figure}
 
+\begin{figure}[H]
+\centering
+\begin{adjustbox} {width=\columnwidth}
+\begin{tikzpicture}
+
+
+\draw[<->] (-8,0) -- (8,0) node[right] {$x$};
+\draw[<->] (0,-1) -- (0,2) node[above] {$y$};
+\draw[black, line width=1.5pt, domain=-7:7,samples=200] plot (\x,{-0.04*(\x)^(2)+1}) node [ right ] {$y$};
+
+\end{tikzpicture}
+\end{adjustbox}
+\end{figure}
+
+
 \end{document}
+
+
+
+
